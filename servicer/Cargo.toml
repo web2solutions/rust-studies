@@ -1,0 +1,17 @@
+[package]
+name = "servicer"
+version = "0.1.0"
+authors = ["Eduardo Almeida <web2solucoes@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+warp = "0.3"
+parking_lot = "0.11.1"
+futures-core = "0.3.14"
+serde = { version = "1.0", features = ["derive"] }
+tokio = { version = "1", features = ["full"] }
+
+[dependencies.redis]
+version = "*"

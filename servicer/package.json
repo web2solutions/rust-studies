@@ -1,0 +1,38 @@
+{
+  "name": "servicer",
+  "version": "1.0.0",
+  "description": "Service Registry made in Rust",
+  "main": "index.js",
+  "scripts": {
+    "clean:reports": "rm -rf docs/reports/unit-testing",
+    "merge:reports": "mochawesome-merge docs/reports/unit-testing/*.json > cypress-tests-report.json",
+    "create:html:report": "marge --reportDir docs/reports/unit-testing cypress-tests-report.json",
+    "generate:html:report": "npm run merge:reports && npm run create:html:report",
+    "test": "npm run clean:reports && npm run cy:run && npm run generate:html:report",
+    "cy:run": "cypress run --spec \"cypress/integration/*\" --reporter mochawesome",
+    "cy:open": "cypress open && cypress run"
+  },
+  "devDependencies": {
+    "assert": "^2.0.0",
+    "cypress": "^6.4.0",
+    "mocha": "^8.2.1",
+    "mochawesome": "^6.2.1",
+    "mochawesome-report-generator": "^5.1.0",
+    "mochawesome-merge": "^4.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/web2solutions/servicer.git"
+  },
+  "keywords": [
+    "Rust",
+    "cypress",
+    "service-registry"
+  ],
+  "author": "José Eduardo Perotta de Almeida",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/web2solutions/servicer/issues"
+  },
+  "homepage": "https://github.com/web2solutions/servicer#readme"
+}
